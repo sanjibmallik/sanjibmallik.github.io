@@ -433,7 +433,7 @@ var ExperiencesComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header class=\"bg-dark mh-header  mh-fixed-nav nav-scroll mh-xs-mobile-nav\" id=\"mh-header\">\n    <div class=\"overlay\"></div>\n    <div class=\"container\">\n        <div class=\"row\">\n            <nav class=\"navbar navbar-expand-lg mh-nav nav-btn\">\n                <button class=\"navbar-toggler collapsed\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n                    <span class=\"navbar-toggler-icon icon\"></span>\n                </button>\n            \n                <div class=\"navbar-collapse collapse\" id=\"navbarSupportedContent\">\n                    <ul class=\"navbar-nav mr-auto ml-auto\">\n                        <li class=\"nav-item active\">\n                            <a class=\"nav-link\" href=\"#mh-home\">Home</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link\" href=\"#mh-about\">About</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link\" href=\"#mh-education\">Education</a>\n                        </li>\n                        <li class=\"nav-item\">\n                           <a class=\"nav-link\" href=\"#mh-skills\">Skills</a>\n                        </li>                                \n                        <li class=\"nav-item\">\n                           <a class=\"nav-link\" href=\"#mh-experience\">Experiences</a>\n                        </li>                                \n                        \n                        <li class=\"nav-item\">\n                           <a class=\"nav-link\" href=\"#mh-contact\">Contact</a>\n                        </li>\n                    </ul>\n                </div>\n            </nav>\n        </div>\n    </div>\n</header>"
+module.exports = "<header class=\"bg-dark mh-header  mh-fixed-nav nav-scroll mh-xs-mobile-nav\" id=\"mh-header\">\n    <div class=\"overlay\"></div>\n    <div class=\"container\">\n        <div class=\"row\">\n            <nav class=\"navbar navbar-expand-lg mh-nav nav-btn\">\n                <button class=\"navbar-toggler collapsed\" type=\"button\" data-toggle=\"collapse\"\n                    data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\"\n                    aria-label=\"Toggle navigation\">\n                    <span class=\"navbar-toggler-icon icon\"></span>\n                </button>\n\n                <div class=\"navbar-collapse collapse\" id=\"navbarSupportedContent\">\n                    <ul class=\"navbar-nav mr-auto ml-auto\">\n                        <li class=\"nav-item active\">\n                            <a class=\"nav-link\" (click)=\"scrollPage($event.target)\" href=\"#mh-home\">Home</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link\" (click)=\"scrollPage($event.target)\" href=\"#mh-about\">About</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link\" (click)=\"scrollPage($event.target)\" href=\"#mh-education\">Education</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link\" (click)=\"scrollPage($event.target)\" href=\"#mh-skills\">Skills</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link\" (click)=\"scrollPage($event.target)\"\n                                href=\"#mh-experience\">Experiences</a>\n                        </li>\n\n                        <li class=\"nav-item\">\n                            <a class=\"nav-link\" (click)=\"scrollPage($event.target)\" href=\"#mh-contact\">Contact</a>\n                        </li>\n                    </ul>\n                </div>\n            </nav>\n        </div>\n    </div>\n</header>"
 
 /***/ }),
 
@@ -466,6 +466,18 @@ var HeaderComponent = /** @class */ (function () {
     function HeaderComponent() {
     }
     HeaderComponent.prototype.ngOnInit = function () {
+    };
+    HeaderComponent.prototype.scrollPage = function (event) {
+        if (location.pathname.replace(/^\//, '') == event.pathname.replace(/^\//, '') && location.hostname == event.hostname) {
+            var target = $(event.hash);
+            target = target.length ? target : $('[name=' + event.hash.slice(1) + ']');
+            if (target.length) {
+                $('html,body').animate({
+                    scrollTop: target.offset().top
+                }, 600);
+                //return false;
+            }
+        }
     };
     HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
