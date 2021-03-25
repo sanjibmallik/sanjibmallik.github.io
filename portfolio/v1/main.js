@@ -853,7 +853,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/sanjibmallik/Documents/GitHub/sanjibmallikportfolio.github.io/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/sanjibmallik/Documents/GitHub/all_portfolios/portfolio_v1/src/main.ts */"./src/main.ts");
 
 
 /***/ })
